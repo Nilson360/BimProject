@@ -1,11 +1,12 @@
 import React from 'react';
-import { ImageBackground, View, Text, Button, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, Button} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { styles } from '../styles/Accueil';
 
 
 function Accueil() {
   const navigation = useNavigation();
-  const image = require('./assets/bgHome.jpg');
+  const image = require('../../assets/bgHome.jpg');
 
   return (
     <View style={styles.container}>
@@ -59,38 +60,5 @@ function Accueil() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  bgHome: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  buttonContainer: {
-    width: '80%',
-    //backgroundColor: 'green',
-    //padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonWrapper: {
-    padding: 10,
-    marginTop: 5,
-    backgroundColor: 'lightblue',
-    width: '100%'
-  },
-});
 
 export default Accueil;
