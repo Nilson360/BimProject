@@ -1,8 +1,7 @@
 import React from 'react';
-import { ImageBackground, View, Text, Button} from 'react-native';
+import { ImageBackground, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../styles/Accueil';
-
 
 function Accueil() {
   const navigation = useNavigation();
@@ -13,52 +12,26 @@ function Accueil() {
       <ImageBackground source={image} style={styles.bgHome}>
         <Text style={styles.title}>Bienvenue</Text>
         <View style={styles.buttonContainer}>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Gaz"
-              onPress={() => navigation.navigate('Gas')}
-              color="#ffffff"
-            />
-          </View>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Température"
-              onPress={() => navigation.navigate('Temperature')}
-              color="#ffffff"
-            />
-          </View>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Incendie"
-              onPress={() => navigation.navigate('Incendie')}
-              color="#ffffff"
-            />
-          </View>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Caméra"
-              onPress={() => navigation.navigate('Camera')}
-              color="#ffffff"
-            />
-          </View>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Humidité"
-              onPress={() => navigation.navigate('Humidite')}
-              color="#ffffff"
-            />
-          </View>
-          <View style={styles.buttonWrapper}>
-            <Button
-              title="Capteur"
-              onPress={() => navigation.navigate('Capteurs', { refresh: true })}
-              color="black"
-            />
-          </View>
+          {['Gaz', 'Temperature', 'Incendie', 'Camera', 'Humidite'].map((title, index) => (
+            <TouchableOpacity
+              key={title}
+              style={[styles.buttonWrapper, title === 'Capteur' ? styles.lastButton : null]}
+              onPress={() => navigation.navigate(title)}
+            >
+              <Text style={styles.buttonText}>{title}</Text>
+            </TouchableOpacity>
+          ))}
+          <TouchableOpacity
+            key={'Capteur'}
+            style={[styles.buttonWrapper]}
+            onPress={() => navigation.navigate('Capteurs', { refresh: true })}
+          >
+          <Text style={styles.buttonText}>Capteur</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
+      
     </View>
   );
 }
-
 export default Accueil;

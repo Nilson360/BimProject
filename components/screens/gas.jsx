@@ -1,20 +1,19 @@
 import React from 'react';
-import { View, Text,Button } from 'react-native';
+import { View, Text,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { styles } from '../styles/capteurs';
 
-
-function Gas() {
+function Gaz() {
     const navigation = useNavigation();
 
   return (
-    <View>
-      {/*<Text>Gaz</Text>*/}
-      <Button
-        title="Retour à l'accueil"
-        onPress={() => navigation.navigate('Accueil')}
-      />
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+          <Text>Go to home</Text>
+        </TouchableOpacity>
+      <Text style={styles.text}>Données detaillés CO2 </Text>
     </View>
   );
 }
 
-export default Gas;
+export default Gaz;

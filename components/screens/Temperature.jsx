@@ -1,19 +1,18 @@
 import React from 'react';
-import { View, Text,Button } from 'react-native';
+import { View, Text,Button,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { styles } from '../styles/capteurs';
 
 function Temperature() {
     const navigation = useNavigation();
 
   return (
-    <View>
-      <Text>Température</Text>
-      <Button
-        title="Retour à l'accueil"
-        onPress={() => navigation.navigate('Accueil')}
-      />
-    </View>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+        <Text>Go to home</Text>
+      </TouchableOpacity>
+        <Text style={styles.text}>Données detaillés sur l'incendie </Text>
+  </View>
   );
 }
 

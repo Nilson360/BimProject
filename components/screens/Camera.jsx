@@ -1,13 +1,19 @@
 // Camera.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text,TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { styles } from '../styles/Camera';
 
 const Camera = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Vue de la caméra</Text>
-    </View>
+    <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+        <Text>Go to home</Text>
+      </TouchableOpacity>
+    <Text style={styles.text}>Données detaillés CO2 </Text>
+  </View>
   );
 };
 
