@@ -8,6 +8,7 @@ import Incendie from './components/screens/Incendie';
 import Camera from './components/screens/Camera';
 import Humidite from './components/screens/Humidite';
 import UbidotsPage from './components/screens/UbidotsPage';
+import Menu from './components/screens/menu';
 
 const Stack = createStackNavigator();
 
